@@ -17,7 +17,9 @@ public class FabricaDeArboles {
         // Verificamos si el arbol ya existe
         for (Arbol arbolIteracion : this.arboles) {
 
-            if (arbolIteracion.getColor() == color && arbolIteracion.getTipoArbol() == tipoArbol && arbolIteracion.getTextura() == textura) {
+            if (arbolIteracion.getColor().equals(color)
+                    && arbolIteracion.getTipoArbol().equals(tipoArbol)
+                    && arbolIteracion.getTextura().equals(textura)) {
                 existe = true;
                 arbol = arbolIteracion;
                 break;
@@ -26,6 +28,7 @@ public class FabricaDeArboles {
 
         if (arbol == null) {
             arbol = new ArbolConcreto(tipoArbol, color, textura);
+            arboles.add(arbol);
         }
 
         return arbol;
